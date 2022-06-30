@@ -11,9 +11,11 @@
 </script>
 
 <script>
-	import Popular from './../components/Popular.svelte';
+	import Movies from '../components/Movies.svelte';
+	import { blur } from 'svelte/transition';
 	export let popular;
-	console.log(popular);
 </script>
 
-<section><Popular {popular} /></section>
+<section in:blur={{ x: 0, duration: 500 }} out:blur={{ x: 0, duration: 300 }}>
+	<Movies movies={popular} />
+</section>
